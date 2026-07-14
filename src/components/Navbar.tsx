@@ -59,7 +59,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4 border-l border-white/20 pl-4 ml-2">
               <span className="text-white/80 text-xs font-bold tracking-widest hidden lg:block uppercase">{user.name}</span>
               {user.name.toLowerCase() === 'admin' && (
-                <a href="https://backend-pi-lovat-57.vercel.app/admin" className="text-xs font-bold text-[#A100FF] hover:text-white transition-all uppercase tracking-widest">Dashboard</a>
+                <a href="/admin/" className="text-xs font-bold text-[#A100FF] hover:text-white transition-all uppercase tracking-widest">Dashboard</a>
               )}
               <button onClick={logout} className="text-xs font-bold text-white hover:text-red-400 transition-all uppercase tracking-widest">Logout</button>
             </div>
