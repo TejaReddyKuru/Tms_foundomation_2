@@ -8,10 +8,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('user', 'payment_status', 'created_at')
 
-    def validate_resume(self, value):
-        if value.size > 5 * 1024 * 1024:  # 5MB
-            raise serializers.ValidationError("Resume file size cannot exceed 5MB.")
-        return value
 
     def validate(self, data):
         user = self.context['request'].user

@@ -29,10 +29,7 @@ class Registration(models.Model):
     registration_number = models.CharField(max_length=100)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     
-    resume = models.FileField(
-        upload_to='resumes/', 
-        validators=[FileExtensionValidator(allowed_extensions=['pdf', 'doc', 'docx'])]
-    )
+
     
     payment_status = models.CharField(max_length=20, choices=PAYMENT_CHOICES, default='Pending')
     created_at = models.DateTimeField(auto_now_add=True)

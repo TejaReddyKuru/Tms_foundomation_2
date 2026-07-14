@@ -22,7 +22,6 @@ export default function Events({ data }: { data: any[] }) {
     registration_number: '',
     gender: 'Other',
   });
-  const [resume, setResume] = useState<File | null>(null);
 
   const events = data?.length ? data : [
     { id: 1, title: 'Annual Youth Summit', date: '2026-08-15', description: 'Join youth leaders across India for a day of inspiration, networking, and planning for rural development.', banner: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800' },
@@ -42,7 +41,7 @@ export default function Events({ data }: { data: any[] }) {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedEventId || !resume) return;
+    if (!selectedEventId) return;
 
     setRegistering(true);
     
@@ -56,7 +55,6 @@ export default function Events({ data }: { data: any[] }) {
     form.append('year', formData.year);
     form.append('registration_number', formData.registration_number);
     form.append('gender', formData.gender);
-    form.append('resume', resume);
 
     try {
       const res = await api.post(`register-event`, form, {
@@ -192,10 +190,6 @@ export default function Events({ data }: { data: any[] }) {
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
                     </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm text-gray-600 mb-1">Resume (PDF, DOC, DOCX - Max 5MB)</label>
-                    <input type="file" required accept=".pdf,.doc,.docx" onChange={e => setResume(e.target.files?.[0] || null)} className="w-full text-sm" />
                   </div>
 
                   <button type="submit" disabled={registering} className="w-full accenture-gradient text-white font-bold py-3 rounded-xl hover:shadow-lg transition-all mt-4">
