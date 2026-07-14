@@ -28,7 +28,7 @@ export default function AuthModal() {
         login(res.data.access, res.data.user);
         closeModal();
         if (res.data.user.role === 'Admin') {
-          window.location.href = '/admin/';
+          window.location.href = '/api/admin/';
         }
       } else {
         await api.post('auth/register', { name, email, phone, password });
