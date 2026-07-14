@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+.accenture-gradient {
+  background: linear-gradient(135deg, #A100FF 0%, #460073 100%);
+}
+
+.accenture-gradient-text {
+  background: linear-gradient(135deg, #A100FF 0%, #460073 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
