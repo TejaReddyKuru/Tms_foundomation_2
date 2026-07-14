@@ -1,3 +1,4 @@
+# pyright: ignore [missing-import]
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -6,7 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/auth/', include('apps.accounts.urls')),
-    path('api/events', include('apps.events.urls')),
+    path('api/events/', include('apps.events.urls')),
     path('api/', include('apps.registrations.urls')),
 ]
 
